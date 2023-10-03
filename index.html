@@ -1,5 +1,17 @@
 <html lang="en">
 <head>
+
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+    
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Vue3</title>
@@ -7,10 +19,11 @@
 </head>
 <body>
     <h1>Hello Vue :)</h1>
-
+    <p>this p is outside #app, var dont exist : {{ title }} </p>
     <div id="app">
-        
-        <p>this var dont exist : {{ title }} </p>
+
+        <a :href="url" target="_blank">best web site ever</a>
+       <hr>
 
         <button @click="ToogleShowBooks">
             <span v-if="showBooks">Hide Books</span>
@@ -24,10 +37,22 @@
             <div @click="title = 'something else'">Change TITLE</div>
             <div @click="changeTitle('Oathbringer')">Change TITLE</div>     
             <h1>books</h1>
+            <ul style="list-style: none;">
+                <li v-for="book in books">
+                   <h3> Title:  {{ book.title }} </h3>
+                   <p>Author : {{ book.author }} </p>
+                   <br> ------------------------------------------------------------------------------
+                </li>
+            </ul>
         </div>
 
         <div v-show="showBooks">Currently showing books</div>
 
+        <hr>
+        <div class="box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">moueleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMouseMove">position x: {{ x }} y: {{ y }}</div>
       
     </div>
 

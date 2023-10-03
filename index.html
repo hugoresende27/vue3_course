@@ -9,19 +9,31 @@
     <h1>Hello Vue :)</h1>
 
     <div id="app">
-        <h2>{{ title }} - {{ author }} - {{ age }}</h2>
+        
+        <p>this var dont exist : {{ title }} </p>
 
-        <button v-on:click="age++">Increase age</button>
-        <button v-on:click="age--">Decrease age</button>
-        <div @click="title = 'something else'">Change TITLE</div>
-        <div @click="changeTitle('Oathbringer')">Change TITLE</div>
+        <button @click="ToogleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+        </button>
+
+        <div v-if="showBooks">
+            <h2>{{ title }} - {{ author }} - {{ age }}</h2>
+            <button v-on:click="age++">Increase age</button>
+            <button v-on:click="age--">Decrease age</button>
+            <div @click="title = 'something else'">Change TITLE</div>
+            <div @click="changeTitle('Oathbringer')">Change TITLE</div>     
+            <h1>books</h1>
+        </div>
+
+        <div v-show="showBooks">Currently showing books</div>
+
+      
     </div>
 
-    <p>{{ title }} </p>
+
 
     <script src="app.js">
-        
-    
     </script>
 </body>
 </html>

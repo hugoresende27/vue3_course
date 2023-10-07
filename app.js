@@ -12,9 +12,9 @@ const app = Vue.createApp({
             x: 0,
             y: 0,
             books: [
-                { title: 'name of the wind', author : 'Zecas'},
-                { title: 'Hello from the other side', author : 'Tonecas'},
-                { title: 'Quim porta é ter saúde', author : 'Maria'},
+                { title: 'name of the wind', author : 'Zecas', img: 'assets/1.jpeg', isFav: true},
+                { title: 'Hello from the other side', author : 'Tonecas', img: 'assets/2.webp', isFav: false},
+                { title: 'Quim porta é ter saúde', author : 'Maria', img: 'assets/3.png', isFav: true},
             ],
             url : 'http://www.thenetninja.co.uk'
         }

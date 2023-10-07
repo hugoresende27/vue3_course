@@ -10,6 +10,27 @@
             margin: 20px;
             display: inline-block;
         }
+
+        body{
+            background: #eee;
+            max-width: 960px;
+            margin: 20px auto;
+        }
+
+        p, h3, ul{
+            margin: 20px;
+            padding: 0;
+        }
+
+        li{
+            list-style-type: none;
+            background: #fff;
+            margin: 20px auto;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     
     </style>
     <meta charset="UTF-8">
@@ -38,11 +59,13 @@
             <div @click="changeTitle('Oathbringer')">Change TITLE</div>     
             <h1>books</h1>
             <ul style="list-style: none;">
-                <li v-for="book in books">
+
+                <li v-for="book in books" :class="{ fav: book.isFav }">
+                    <img :src="book.img" :alt="book.title" height="300">
                    <h3> Title:  {{ book.title }} </h3>
                    <p>Author : {{ book.author }} </p>
-                   <br> ------------------------------------------------------------------------------
                 </li>
+
             </ul>
         </div>
 

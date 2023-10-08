@@ -31,6 +31,11 @@
             align-items: center;
             justify-content: space-between;
         }
+
+        li.fav{
+            background: #942222;
+            color: white;
+        }
     
     </style>
     <meta charset="UTF-8">
@@ -46,11 +51,12 @@
         <a :href="url" target="_blank">best web site ever</a>
        <hr>
 
-        <button @click="ToogleShowBooks">
+        <button @click="toogleShowBooks">
             <span v-if="showBooks">Hide Books</span>
             <span v-else>Show Books</span>
         </button>
 
+        <p>{{ filteredBooks }}</p>
         <div v-if="showBooks">
             <h2>{{ title }} - {{ author }} - {{ age }}</h2>
             <button v-on:click="age++">Increase age</button>
@@ -60,7 +66,8 @@
             <h1>books</h1>
             <ul style="list-style: none;">
 
-                <li v-for="book in books" :class="{ fav: book.isFav }">
+                <!-- <li @click="toogleFav(book)" v-for="book in books" :class="{ fav: book.isFav }"> -->
+                <li @click="toogleFav(book)" v-for="book in filteredBooks" :class="{ fav: book.isFav }">
                     <img :src="book.img" :alt="book.title" height="300">
                    <h3> Title:  {{ book.title }} </h3>
                    <p>Author : {{ book.author }} </p>

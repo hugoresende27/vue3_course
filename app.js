@@ -13,7 +13,7 @@ const app = Vue.createApp({
             y: 0,
             books: [
                 { title: 'name of the wind', author : 'Zecas', img: 'assets/1.jpeg', isFav: true},
-                { title: 'Hello from the other side', author : 'Tonecas', img: 'assets/2.webp', isFav: false},
+                { title: 'Hello from the other side', author : 'Tonecas', img: 'assets/2.webp', isFav: true},
                 { title: 'Quim porta é ter saúde', author : 'Maria', img: 'assets/3.png', isFav: true},
             ],
             url : 'http://www.thenetninja.co.uk'
@@ -25,7 +25,7 @@ const app = Vue.createApp({
             // this.title = "Words of Randiance"
             this.title = title
         },
-        ToogleShowBooks(){
+        toogleShowBooks(){
             this.showBooks = !this.showBooks
         },
         handleEvent(e, data){
@@ -37,6 +37,24 @@ const app = Vue.createApp({
         handleMouseMove(e){
             this.x = e.offsetX
             this.y = e.offsetY
+        },
+
+        toogleFav(book){
+            // console.log(book)
+            book.isFav = !book.isFav
+            // if(book.isFav == true){
+            //     book.isFav = false
+            // }else{
+            //     book.isFav = true
+            // }
+        
+        }
+    },
+
+    computed: {
+        filteredBooks(){
+            // return 'Hello filtered Books'
+            return this.books.filter((book) => book.isFav)
         }
     }
 })
